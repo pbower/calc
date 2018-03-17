@@ -11,22 +11,12 @@ var args = ProcessInfo.processInfo.arguments
 args.removeFirst() // remove the name of the program
 //print(Int(args[0])!)
 
-class ProcessInput {
-    
-    var input: String?
-    var numInput = [Int]()
-    var signInput = Set<Character>()
-    
-    init(input: String?) {
-        for character in input! {
-            print(character)
-        }
-    }
+func readInput (_ input: String) -> Array<String> {
+    let output = input.split {$0 == " "}.map {String($0)}
+    return output
 }
-    
-    
 
-func calculate(_ firstNum: Int,_ secondNum: Int,_ modifier: Character) -> Int? {
+func calculate(_ firstNum: Int,_ modifier: String, _ secondNum: Int) -> Int? {
     var result: Int
     switch modifier {
     case "+":
@@ -45,7 +35,18 @@ func calculate(_ firstNum: Int,_ secondNum: Int,_ modifier: Character) -> Int? {
     return result
 }
 
-ProcessInput(input: readLine()!)
+var array = readInput("-43 + 5 + 32")
+print(array)
+let firstNum = Int(array[0])!
+let modifier = array[1]
+let secondNum = Int(array[2])!
 
-//let myCalc = calculate(36, 24, "x")
-//print(myCalc ?? "Error")
+var calcOutput = calculate(firstNum, modifier, secondNum)!
+print(calcOutput)
+
+print(array[2...array.count-1])
+
+print(array)
+
+
+
