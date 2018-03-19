@@ -8,8 +8,14 @@
 
 import Foundation
 
+enum calcError: Error {
+    case invalidInputChars
+    case divZero
+    case numOutOfBounds
+}
+
 class ExceptionHandling {
-    
+
 //    //Element counts for validation and input exception handling
 //    if(array.count > 0) { //check if needed
 //    var totalChar = array.count

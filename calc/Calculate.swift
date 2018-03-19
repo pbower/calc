@@ -12,14 +12,18 @@ import Foundation
 
 class Calculate {
     
-    let firstNum: Int
-    let op: String
-    let secondNum: Int
+    var firstNum: Int
+    var op: String
+    var secondNum: Int
+    var x = 0   //x is used to determine which integer pair is calculated first
     
     init(input: [String]) {
-        firstNum = Int(input[0])!
-        op = input[1]
-        secondNum = Int(input[2])!
+        firstNum = Int(input[x])!
+        op = input[x+1]
+        secondNum = Int(input[x+2])!
+        if !opPrioritise() {
+            findCalcPair(input: input)
+        }
     }
     
     //Function performs input/output calculations based on input operator(s)
@@ -40,5 +44,26 @@ class Calculate {
             return nil
         }
         return result
+    }
+    
+    //Function to determine operator order of precedence
+    func opPrioritise() -> Bool {
+        switch op {
+        case "+", "-":
+            return false
+        case "x", "/", "%":
+            return true
+        default:
+            return false
+        }
+    }
+    
+    func findCalcPair(input: [String]) {
+        while x < args.count-3 && !opPrioritise() {
+            x+=2
+            firstNum = Int(input[x])!
+            op = input[x+1]
+            secondNum = Int(input[x+2])!
+        }
     }
 }
