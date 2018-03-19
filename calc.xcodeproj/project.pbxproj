@@ -12,6 +12,9 @@
 		054418F62055EFEB008C821B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054418F52055EFEB008C821B /* main.swift */; };
 		05C4D95F1E76182500AB9F52 /* CalcTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C4D95E1E76182500AB9F52 /* CalcTest.swift */; };
 		7E0364C0205A06480008CDFA /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0364BF205A06480008CDFA /* Specification.swift */; };
+		7E08E309205F6F4000BDDE3F /* ReadInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08E308205F6F4000BDDE3F /* ReadInput.swift */; };
+		7E08E30B205F6F5500BDDE3F /* Calculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08E30A205F6F5500BDDE3F /* Calculate.swift */; };
+		7E08E30D205F713D00BDDE3F /* ExceptionHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08E30C205F713D00BDDE3F /* ExceptionHandling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		05C4D9601E76182500AB9F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05F9F69E1E9DEDD500694D73 /* CalcTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CalcTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		7E0364BF205A06480008CDFA /* Specification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specification.swift; sourceTree = "<group>"; };
+		7E08E308205F6F4000BDDE3F /* ReadInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadInput.swift; sourceTree = "<group>"; };
+		7E08E30A205F6F5500BDDE3F /* Calculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculate.swift; sourceTree = "<group>"; };
+		7E08E30C205F713D00BDDE3F /* ExceptionHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionHandling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,9 @@
 			children = (
 				054418F52055EFEB008C821B /* main.swift */,
 				7E0364BF205A06480008CDFA /* Specification.swift */,
+				7E08E308205F6F4000BDDE3F /* ReadInput.swift */,
+				7E08E30A205F6F5500BDDE3F /* Calculate.swift */,
+				7E08E30C205F713D00BDDE3F /* ExceptionHandling.swift */,
 			);
 			path = calc;
 			sourceTree = "<group>";
@@ -205,7 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E08E30B205F6F5500BDDE3F /* Calculate.swift in Sources */,
 				054418F62055EFEB008C821B /* main.swift in Sources */,
+				7E08E30D205F713D00BDDE3F /* ExceptionHandling.swift in Sources */,
+				7E08E309205F6F4000BDDE3F /* ReadInput.swift in Sources */,
 				7E0364C0205A06480008CDFA /* Specification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
