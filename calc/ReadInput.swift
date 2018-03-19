@@ -9,22 +9,13 @@
 import Foundation
 
 struct ReadInput {
+
+    let input: [String]
     
-let input: String
-    
-    //Convert input string to array to isolate input components for processing
-    func readInput () -> Array<String> {
-        let output = input.split {$0 == " "}.map {String($0)}
+    func trimInput() -> [String] {
+        let output = Array(input[3...input.count-1])
         return output
     }
-        
-    //Provide facility to isolate integers as an array for validation and input exception handling
-    func strToInt (_ input: [String]) -> [Int] {
-        let output = input.map {Int($0)}.filter{$0 != nil}.map { $0! }
-        return output
-    }
-
-
 }
 
 
