@@ -14,6 +14,7 @@ let input: String
     
     //Convert input string to array to isolate input components for processing
     func readInput () -> Array<String> {
+        let output = input.split {$0 == " "}.map {String($0)}
         return output
     }
         
