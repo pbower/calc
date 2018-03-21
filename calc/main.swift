@@ -15,10 +15,13 @@ args.removeFirst() // remove the name of the program
 print(args)
 
 if args.count > 3 {
-    while args.count > 3 {
+    while args.count > 2 {
         let (resultValue, resultPosition) = Calculate(input: args).calculate()
+        print("Position before update: \(resultPosition)")
+        print("Args Before update: ", args)
         args = UpdateInput(input: args, resultValue: resultValue, resultPosition: resultPosition).update()
-        print(args)
+        print("Args After update: ", args)
+        print("Position before update: \(resultPosition)")
         print(resultValue!)
     }
 } else {

@@ -56,7 +56,7 @@ class Calculate {
         case "%":
             result = firstNum % secondNum
         default:
-            return (nil, calcStart)
+            return (nil, 0)
         }
         return (result, calcStart)
     }
