@@ -1,4 +1,4 @@
-//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //  Calculate.swift
 //  calc
 //
@@ -6,63 +6,65 @@
 //  Copyright © 2018 UTS. All rights reserved.
 //
 //  Description:
-//  Performs a calculation pass on the input string
-//  I.e., for input with several numbers and operators, the Calculate.calculate() method is called repeatedly
+//      Performs a calculation pass on the input string.
+//      For input with several number operator sets the Calculate.calculate() method is called repeatedly
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 import Foundation
 
 class Calculate {
     
-    var firstNum: Int   //First number to be used in calculation pass
-    var op: String      //Operator to be used in calculation pass
-    var secondNum: Int  //Second number to be used in calculation pass
-    var calcStart = 0   //calcStart is used to determine which integer pair is calculated in the pass
+    var firstNumber: Int                                                    //First number to be used in calculation pass
+    var op: String                                                          //Operator to be used in calculation pass
+    var secondNumber: Int                                                   //Second number to be used in calculation pass
+    var calcStartPosition = 0                                               //calcStartPosition is used to determine which integer pair is calculated in the pass
     
-    //Initialise calculation by starting at the left of the input string
     init(input: [String]) {
-        firstNum = Int(input[calcStart])!
-        op = input[calcStart+1]
-        secondNum = Int(input[calcStart+2])!
+        firstNumber = Int(input[calcStartPosition])!
+        op = input[calcStartPosition+1]
+        secondNumber = Int(input[calcStartPosition+2])!
         
-        if !opPrioritise() {                //if the operator is not a 'priority' operator ("x", "/", "%"),
-            findCalcPair(input: input)      //increment to the next Number, Operator, Number pair
+        if !priorityOperator() {                                            //if the op is not a priority operator ('x', '/' or '%')
+            findCalculationPair(input: input)                               //find the right operator and number pair
         }
     }
     
-    func findCalcPair(input: [String]) {                        //Finds the first high priority Number, Operator, Number pair
-        while calcStart < args.count-3 && !opPrioritise() {     //if none exists, the last one is used for the pass
-            calcStart+=2
-            firstNum = Int(input[calcStart])!
-            op = input[calcStart+1]
-            secondNum = Int(input[calcStart+2])!
+    func findCalculationPair(input: [String]) {                             //Find the first pair of numbers with a priority operator
+        while calcStartPosition < args.count-3 && !priorityOperator() {
+            calcStartPosition+=2
+            firstNumber = Int(input[calcStartPosition])!
+            op = input[calcStartPosition+1]
+            secondNumber = Int(input[calcStartPosition+2])!
+        }
+        if calcStartPosition == input.count-3 && !priorityOperator() {     //if none is found, use the first integer pair and operator in the array
+            calcStartPosition = 0
+            firstNumber = Int(input[0])!
+            op = input[1]
+            secondNumber = Int(input[2])!
         }
     }
     
-    /* calculate() performs input/output calculations based on input operator(s)
-     Returns:   1. the value of the calculation output
-                2. the position of the result in the input array (which replaces the firstNum, op and secondNum pair) */
-    
-    func calculate() -> (value: Int?, position: Int) {
-        var result: Int
+    func calculate() -> (value: Int?, position: Int) {                      //performs the input/output calculation for a single pair of numbers from the input array
+        var result: Int                                                     //returns the calculation output and the position of the result in the array
         switch op {
         case "+":
-            result = firstNum + secondNum
+            result = firstNumber + secondNumber
         case "-":
-            result = firstNum - secondNum
+            result = firstNumber - secondNumber
         case "x":
-            result = firstNum * secondNum
+            result = firstNumber * secondNumber
         case "/":
-            result = firstNum / secondNum
+            result = firstNumber / secondNumber
         case "%":
-            result = firstNum % secondNum
+            result = firstNumber % secondNumber
         default:
             return (nil, 0)
         }
-        return (result, calcStart)
+        return (result, calcStartPosition)
     }
     
-    //Function to determine whether the operator has order of precedence
-    func opPrioritise() -> Bool {
+    func priorityOperator() -> Bool {                                       //Function to determine whether the operator has order of precedence
         switch op {
         case "+", "-":
             return false
@@ -72,6 +74,4 @@ class Calculate {
             return false
         }
     }
-    
-    
 }
