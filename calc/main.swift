@@ -14,13 +14,15 @@ args.removeFirst() // remove the name of the program
 //print(Int(args[0])!)
 print(args)
 
-while args.count > 3 {
-    var result = Calculate(input: args).calculate()
-    args = [String(result!)] + ReadInput (input: args).trimInput()
-    result = Calculate(input: args).calculate()
-    //args = [String(result!)] + ReadInput (input: args).trimInput()
-print(args)
-print(result!)
+if args.count > 3 {
+    while args.count > 3 {
+        let (resultValue, resultPosition) = Calculate(input: args).calculate()
+        args = UpdateInput(input: args, resultValue: resultValue, resultPosition: resultPosition).update()
+        print(args)
+        print(resultValue!)
+    }
+} else {
+    print("Error")     /* Placeholder */
 }
 
 
