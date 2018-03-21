@@ -17,7 +17,7 @@ args.removeFirst() // remove the name of the program
 //print(args)
 var result: (value: Int?, position: Int)
 result = (0, 0)
-if args.count > 3 {
+if args.count > 2 {
     while args.count > 2 {
         (result.value, result.position) = Calculate(input: args).calculate()
         args = UpdateInput(input: args, resultValue: result.value, resultPosition: result.position).update()
