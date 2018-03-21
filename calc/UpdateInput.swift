@@ -16,7 +16,7 @@ struct UpdateInput {
     
     func update() -> [String] {
         
-        if resultPosition == 0 && input.count == 3 {                                    //Result is the final result
+        if resultPosition == 0 && input.count == 3 {                                    //If result is the final result, return the value
             return  ["\(resultValue!)"]
             
         } else if resultPosition == 0 && input.count > 1 && input.count > 3 {           //Result is on the left of the input array
