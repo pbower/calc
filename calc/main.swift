@@ -19,6 +19,9 @@ var result: (value: Int?, position: Int)
 result = (0, 0)
 try CheckInput(input: args).checkInputIsValid()
 try CheckInput(input: args).isOutOfBounds()
+if args.count == 1 {
+    print(Int(args[0])!)
+}
 
 if args.count > 2 {
     while args.count > 2 {
@@ -27,10 +30,9 @@ if args.count > 2 {
         //print("Args After update: ", args)
         //print("Position before update: \(result.position)")
     }
-} else {
-    print("Error")     /* Placeholder */
+    print(result.value!)
 }
-print(result.value!)
+
 
 
 

@@ -20,7 +20,7 @@ struct CheckInput {
     let index = 0
     
     func checkInputIsValid() throws {
-        if input.count == 1 {
+        if input.count == 1 && Int(input[0]) == nil {
             throw CalcError.invalidInput
         }
         if input.count % 2 == 0 {
