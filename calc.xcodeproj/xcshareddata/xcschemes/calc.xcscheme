@@ -82,11 +82,11 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/"
+            argument = "+"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "5"
+            argument = "10"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
@@ -103,6 +103,22 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "2"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "+"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "2"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "/"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "3"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

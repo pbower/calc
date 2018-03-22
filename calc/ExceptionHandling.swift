@@ -8,23 +8,50 @@
 
 import Foundation
 
-enum calcError: Error {
-    case invalidInputChars
+enum CalcError: Error {
+    case invalidInput
     case divZero
     case numOutOfBounds
 }
 
-class ExceptionHandling {
-
-//    //Element counts for validation and input exception handling
-//    if(array.count > 0) { //check if needed
-//    var totalChar = array.count
-//    var totalInt = strToInt(array).count
-//    var totalOp = totalChar - totalInt
-//    while totalChar > 1 {
-//    array = stepCalculation(array)+array(3...array.count-1)
-//    totalChar = array.count
-//    totalInt = strToInt(array).count
-//    totalOp = totalChar - totalInt
-//    }
+struct CheckInput {
+    
+    let input: [String]
+    let index = 0
+    
+    func checkInputIsValid() throws {
+        if input.count == 1 {
+            throw CalcError.invalidInput
+        }
+        if input.count % 2 == 0 {
+            throw CalcError.invalidInput
+        }
+        for index in stride(from: 0, to: input.count-2, by: 2) {
+            if Int(input[index]) != nil {
+            } else {
+                throw CalcError.invalidInput
+            }
+        }
+        for index in stride(from: 1, to: input.count-2, by: 2) {
+            if input[index] != "x"
+            && input[index] != "/"
+            && input[index] != "+"
+            && input[index] != "-"
+            && input[index] != "%" {
+                throw CalcError.invalidInput
+            }
+        }
+    }
+    func isOutOfBounds() throws {
+        for index in stride(from: 0, to: input.count, by: 1) {
+            if let integerSize = Int(input[index]) {
+                if integerSize > Int32.max || integerSize < Int32.min {
+                    throw CalcError.numOutOfBounds
+                }
+            }
+        }
+    }
 }
+
+
+
