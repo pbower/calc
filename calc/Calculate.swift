@@ -45,24 +45,28 @@ class Calculate {
         }
     }
     
-    func calculate() throws -> (value: Int?, position: Int) {                      //performs the input/output calculation for a single pair of numbers from the input array
+    func calculate() throws -> (value: Int?, position: Int) {               //performs the input/output calculation for a single pair of numbers from the input array
         var result: Int                                                     //returns the calculation output and the position of the result in the array
-        switch op {
-        case "+":
-            result = firstNumber + secondNumber
-        case "-":
-            result = firstNumber - secondNumber
-        case "x":
-            result = firstNumber * secondNumber
-        case "/":
-            result = firstNumber / secondNumber
-        case "%":
-            result = firstNumber % secondNumber
-        default:
-            return (nil, 0)
+        do {
+            switch op {
+            case "+":
+                result = firstNumber + secondNumber
+            case "-":
+                result = firstNumber - secondNumber
+            case "x":
+                result = firstNumber * secondNumber
+            case "/":
+                result = firstNumber / secondNumber
+            case "%":
+                result = firstNumber % secondNumber
+            default:
+                return (nil, 0)
+            }
+            try CheckInput(input: ["\(result)"]).isOutOfBounds()
+            return (result, calcStartPosition)
+        } catch {
+                throw CalcError.invalidInput
         }
-        try CheckInput(input: ["\(result)"]).isOutOfBounds()
-        return (result, calcStartPosition)
     }
     
     func priorityOperator() -> Bool {                                       //Function to determine whether the operator has order of precedence
