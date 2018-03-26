@@ -10,33 +10,29 @@ import Foundation
 
 enum CalcError: Error {
     case invalidInput
-    case divZero
     case numOutOfBounds
 }
 
-struct CheckInput {
+struct ErrorCheckCalls {
     
-    let input: [String]
+    let args: [String]
     let index = 0
     
     func checkInputIsValid() throws {
-        if input.count == 1 && Int(input[0]) == nil {
+        if (args.count == 1 && Int(args[0]) == nil)                    //check for nil args
+            || (args.count % 2 == 0) {                                 //check for invalid arg count
             throw CalcError.invalidInput
         }
-        if input.count % 2 == 0 {
-            throw CalcError.invalidInput
-        }
-        for index in stride(from: 0, to: input.count-2, by: 2) {
-            if Int(input[index]) != nil {
-            } else {
+        for index in stride(from: 0, to: args.count-2, by: 2) {        //check for nil args in array positions that require numbers
+            if Int(args[index]) == nil {
                 throw CalcError.invalidInput
             }
         }
     }
     
     func isOutOfBounds() throws {
-        for index in stride(from: 0, to: input.count, by: 1) {
-            if let integerSize = Int(input[index]) {
+        for index in stride(from: 0, to: args.count, by: 1) {
+            if let integerSize = Int(args[index]) {
                 if integerSize > Int32.max || integerSize < Int32.min {
                     throw CalcError.numOutOfBounds
                 }

@@ -1,5 +1,5 @@
 //
-//  UpdateInput.swift
+//  UpdateArgs.swift
 //  calc
 //
 //  Created by Peter Bower on 21/3/18.
@@ -8,33 +8,29 @@
 
 import Foundation
 
-struct UpdateInput {
+struct UpdateArgs {
     
-    let input: [String]
+    let args: [String]
     let resultValue: Int?
     let resultPosition: Int
     
-    func update() -> [String] {
+    func update() -> [String] {                                                        //Return result and any args that haven't been processed yet
         
-        if resultPosition == 0 && input.count == 3 {                                    //If result is the final result, return the value
+        if resultPosition == 0 && args.count == 3 {                                    //If result is the final result, return the value
             return  ["\(resultValue!)"]
             
-        } else if resultPosition == 0 && input.count > 1 && input.count > 3 {           //Result is on the left of the input array
-            return ["\(resultValue!)"]  + Array(input[resultPosition + 3...input.count - 1])
+        } else if resultPosition == 0 && args.count > 1 && args.count > 3 {            //Handles scenario where result is on the left of the args array
+            return ["\(resultValue!)"]  + Array(args[resultPosition + 3...args.count - 1])
             
-        } else if resultPosition > 0 && resultPosition < input.count-3  {               //Result is in the middle of further calculations
-            return Array(input[0...resultPosition - 1]) + ["\(resultValue!)"] + Array(input[resultPosition + 3...input.count - 1])
+        } else if resultPosition > 0 && resultPosition < args.count-3  {               //Handles scenario where result is in the middle of further calculations
+            return Array(args[0...resultPosition - 1]) + ["\(resultValue!)"] + Array(args[resultPosition + 3...args.count - 1])
             
-        //Result is on the right of the input array, but is not the final result
-        } else if (resultPosition == input.count - 3 && input.count > 1) || (resultPosition == input.count - 1 && input.count > 1) {
-            return Array(input[0...resultPosition - 1]) + ["\(resultValue!)"]
-        
-        } else {
-            return ["Error"]                                                            /* Placeholder before implementing exception handling */
+        } else  {
+            return Array(args[0...resultPosition - 1]) + ["\(resultValue!)"]            //Handles scenario where result is on the right of the args array, but is not the last calc pass
+            
         }
     }
 }
-
 
 
 
