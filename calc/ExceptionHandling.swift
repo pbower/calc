@@ -30,7 +30,7 @@ struct ErrorCheckCalls {
         }
     }
     
-    func isOutOfBounds() throws {
+    func isOutOfBounds() throws {                                      //check if calc result is out of bounds
         for index in stride(from: 0, to: args.count, by: 1) {
             if let integerSize = Int(args[index]) {
                 if integerSize > Int32.max || integerSize < Int32.min {

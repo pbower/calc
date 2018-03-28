@@ -23,18 +23,18 @@ class Calculate {
             secondNumber = Int(args[calcStartPosition+2])!
             
             if !priorityOperator() {                                        //if the op is not a priority operator ('x', '/' or '%')
-                findCalculationPair(args: args)                           //find the right operator and number pair
+                findCalculationPair(args: args)                             //find the right operator and number pair
             }
     }
     
-    func findCalculationPair(args: [String]) {                             //Find the first pair of numbers with a priority operator
+    func findCalculationPair(args: [String]) {                              //Find the first pair of numbers with a priority operator
         while calcStartPosition < args.count-3 && !priorityOperator() {
             calcStartPosition+=2
             firstNumber = Int(args[calcStartPosition])!
             op = args[calcStartPosition+1]
             secondNumber = Int(args[calcStartPosition+2])!
         }
-        if calcStartPosition == args.count-3 && !priorityOperator() {     //if none is found, use the first integer pair and operator in the array
+        if calcStartPosition == args.count-3 && !priorityOperator() {       //if none is found, use the first integer pair and operator in the array
             calcStartPosition = 0
             firstNumber = Int(args[0])!
             op = args[1]
