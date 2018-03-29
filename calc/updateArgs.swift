@@ -1,5 +1,5 @@
 //
-//  UpdateArgs.swift
+//  updateArgs.swift
 //  calc
 //
 //  Created by Peter Bower on 21/3/18.
