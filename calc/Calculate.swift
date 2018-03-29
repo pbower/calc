@@ -6,7 +6,6 @@
 //  Copyright © 2018 UTS. All rights reserved.
 //
 
-
 import Foundation
 
 class Calculate {                                                           //Calculate() is used to perform a calculation pass for each integer pair

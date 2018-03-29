@@ -9,7 +9,6 @@
 import Foundation
 var args = ProcessInfo.processInfo.arguments        //setup input arguments for processing
 args.removeFirst()
-
 Validation(args: args).checkInputIsValid()          //validate args
 
 var result: (value: Int?, position: Int) = (0, 0)   //initialise empty calculation result

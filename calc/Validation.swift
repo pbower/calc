@@ -31,8 +31,8 @@ struct Validation {                                                         //Va
     func isOutOfBounds() {                                                  //use case 1: initial argument validation
         for index in stride(from: 0, to: args.count, by: 1) {               //use case 2: check if calculation result is out of bounds
             if let integerSize = Int(args[index]) {
-                if integerSize > Int.max || integerSize < Int.min {
-                    ExceptionHandling(errInput: args.joined(separator: " ")).integerOverflow()
+                if integerSize > Int32.max || integerSize < Int32.min {
+                    ExceptionHandling(errInput: (args.joined(separator: " "))).integerOverflow()
                 }
             }
         }

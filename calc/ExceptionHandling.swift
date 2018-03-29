@@ -33,7 +33,7 @@ struct ExceptionHandling {                                           //Exception
         do {
             throw CalcError.integerOverflow
         } catch {
-            print("Integer Overflow")
+            print("Integer Overflow: \(errInput) > 9223372036854775807")
             exit(2)
         }
     }
