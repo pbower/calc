@@ -17,7 +17,7 @@ if args.count == 1 {                                //handle single argument (wh
     print(Int(args[0])!)
 }
 
-if args.count > 2 {                                 //perform calculation passes until the final result is reached and printed
+if args.count > 2 {                                 //for valid multiple arguments perform calculation passes until the final result is reached and printed
     while args.count > 2 {
         (result.value, result.position) = Calculate(args: args).calculate()
         args = UpdateArgs(args: args, resultValue: result.value, resultPosition: result.position).update()
