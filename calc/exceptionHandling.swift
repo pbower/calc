@@ -19,7 +19,7 @@ struct ExceptionHandling {                                           //Exception
         case unknownOperator
         case incompleteExpression
     }
-
+    
     func invalidInput() {                                            //error handling functions
         do {
             throw CalcError.invalidInput
@@ -37,7 +37,7 @@ struct ExceptionHandling {                                           //Exception
             exit(2)
         }
     }
-
+    
     func divByZero() {
         do {
             throw CalcError.divByZero

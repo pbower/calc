@@ -55,6 +55,11 @@ class Calculate {                                                           //Ca
     
     func calculate() -> (value: Int?, position: Int) {                      //performs the args/output calculation for a single pair of numbers from the args array
         var result: Int                                                     //returns the calculation output and the position of the result in the array, so it can be trimmed
+        
+        if (op == "/" || op == "%") && secondInt == 0 {                     //check for divide by or remainder of division by zero
+            ExceptionHandling(errInput: "").divByZero()
+        }
+        
         switch op {
         case "+":
             result = firstInt + secondInt

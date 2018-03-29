@@ -28,8 +28,8 @@ struct Validation {                                                         //Va
         isOutOfBounds()
     }
     
-    func isOutOfBounds() {                                                  //use case 1 initial argument validation
-        for index in stride(from: 0, to: args.count, by: 1) {               //use case 2 check if calculation result is out of bounds
+    func isOutOfBounds() {                                                  //use case 1: initial argument validation
+        for index in stride(from: 0, to: args.count, by: 1) {               //use case 2: check if calculation result is out of bounds
             if let integerSize = Int(args[index]) {
                 if integerSize > Int.max || integerSize < Int.min {
                     ExceptionHandling(errInput: args.joined(separator: " ")).integerOverflow()
